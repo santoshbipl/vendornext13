@@ -13,6 +13,9 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
 
 const Footer = ({sitesetting,nationalads}) => {
 
@@ -23,23 +26,22 @@ console.log('end nationalads');
   return (
     <>
    
-   <div className="bottomAd"> 
-     {nationalads && nationalads.map((row, i) => {
-    return (
+ <Carousel  showIndicators={false} showThumbs={true} autoPlay={true} infiniteLoop={true} interval={3000} stopOnHover={true}>
+       {nationalads.map((row, i) => (
+      <div className="bottomAd"  key={i}>
       
-          <Link target="_blank" href={`/vendors/`+ row.slug }>
-          <Image
-            src={row.ads_image?row.ads_image:""}
-            alt={row.vendor_name?row.vendor_name:""}
-            
-            width="1400"
-            height="200"
-          />
-          </Link>
-       
-    );
-  })}
-  </div>
+	   
+        <Image
+          src={row.ads_image}
+          className="w-full  h-[100%] xl:h-[100%] object-fill"
+          alt="Vendor Guide Logo"
+          width="1400"
+          height="200"
+        />
+      </div>
+    
+))}
+    </Carousel>
 			
 			
       <footer
