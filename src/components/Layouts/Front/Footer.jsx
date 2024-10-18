@@ -27,7 +27,7 @@ console.log('end nationalads');
     <>
    
  <Carousel  showIndicators={false} showThumbs={true} autoPlay={true} infiniteLoop={true} interval={3000} stopOnHover={true}>
-       {nationalads.map((row, i) => (
+       {nationalads && nationalads.map((row, i) => (
       <div className="bottomAd"  key={i}>
       
 	   
